@@ -31,7 +31,7 @@ This will help look at 3 data sets and manipulate it with providing me with the 
   -	Join ReadSum table to account user table by the TEMP & The trim fields
   -	Field Calc the TRUE user ID field into the 'NEW/FULL user ID field in the Read Sum table
 -	Add Annualized API Usage
-  -	([FREQUENCY]/90) * 365
+  -	(FREQUENCY/90) * 365
 -	Select where App ID is 'N/A' and update to NULL
 -	Use Table to Excel tool
 -	Open exel file and save as .xlsx
