@@ -1,0 +1,15 @@
+TIMESTAMP,APP_ID,USER_ID,ACTION,USER_AGENT
+2024-09-11T00:10:57.000Z,bp53ca8d3,12345678,form_activity,QB MobileApp
+2024-09-11T00:10:27.000Z,bp53ca8d3,23456789,form_activity,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+2024-09-11T00:10:15.000Z,bp53ca8d3,15903575,form_activity,QB MobileApp
+2024-09-11T00:10:13.000Z,bp53ca8d3,15903575,report_access,QB MobileApp
+2024-09-11T00:10:10.000Z,bp53ca8d3,85204506,app_dbpage_access,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+2024-09-11T00:09:49.000Z,bp53ca8d3,12345678,form_activity,QB MobileApp
+2024-09-11T00:09:40.000Z,bp53ca8d3,12345678,form_activity,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+2024-09-11T00:09:39.000Z,bp53ca8d3,23456789,form_activity,QB MobileApp
+2024-09-11T00:08:41.000Z,bp53ca8d3,15903575,form_activity,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+2024-09-11T00:08:33.000Z,bp53ca8d3,15903575,form_activity,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+2024-09-11T00:07:13.000Z,bpqhu6hqy,85204506,app_dashboard_access,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0"
+2024-09-11T00:04:14.000Z,bpqhu6hqy,15903575,form_activity,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0"
+2024-09-11T00:03:06.000Z,bp53ca8d3,14785236,form_activity,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0"
+2024-09-11T00:03:03.000Z,bp53ca8d3,23456789,app_dbpage_access,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0"

@@ -1,0 +1,15 @@
+TIMESTAMP,TYPE,ACTION,ACCOUNT_ID,PIPELINE_ID,USER_ID,CHANNEL,APP_ID,USER_AGENT
+2024-12-11T15:00:43.000Z,PIPELINE,pipeline_step,N/A,1234567890123456,12345678,microsoft-outlook,N/A,N/A
+2024-12-11T15:00:04.000Z,PIPELINE,pipeline_step,N/A,1234567890123456,14785236,microsoft-outlook,N/A,N/A
+2024-12-11T15:00:01.000Z,API,restful_api_runQuery,123456,N/A,85204506,N/A,btjbjkrea,Apache-HttpClient/4.5.14 (Java/1.8.0_372)
+2024-12-11T15:00:00.000Z,API,restful_api_runQuery,123456,N/A,23456789,N/A,btjbjkrea,Apache-HttpClient/4.5.14 (Java/1.8.0_372)
+2024-12-11T14:59:40.000Z,API,restful_api_runQuery,123456,N/A,12345678,N/A,br7y527da,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0"
+2024-12-11T14:58:05.000Z,API,restful_api_runQuery,123456,N/A,14785236,N/A,bp53ca8d3,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0"
+2024-12-11T14:57:20.000Z,API,restful_api_runQuery,123456,N/A,85204506,N/A,bp53ca8d3,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0"
+2024-12-11T14:56:40.000Z,API,restful_api_runQuery,123456,N/A,23456789,N/A,bp53ca8d3,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
+2024-12-11T14:56:24.000Z,PIPELINE,pipeline_step,N/A,6543210987654321,12345678,microsoft-outlook,N/A,N/A
+2024-12-11T14:55:26.000Z,PIPELINE,pipeline_step,N/A,6543210987654321,12345678,webhooks,N/A,N/A
+2024-12-11T14:55:26.000Z,PIPELINE,pipeline_step,N/A,2345678901234567,85204506,webhooks,N/A,N/A
+2024-12-11T14:55:17.000Z,API,restful_api_runQuery,123456,N/A,23456789,N/A,bp53ca8d3,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
+2024-12-11T14:55:01.000Z,API,restful_api_runQuery,123456,N/A,23456789,N/A,br7y527da,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0"
+2024-12-11T14:53:56.000Z,PIPELINE,pipeline_step,N/A,7654321098765432,12345678,microsoft-outlook,N/A,N/A
