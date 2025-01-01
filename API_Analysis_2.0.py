@@ -11,14 +11,17 @@ INTEGRATION_READS = 'integration_reads*.csv'
 USER_ACCOUNTS_DROP = [
     'FIRST NAME', 'LAST NAME', 'USERNAME', 'LAST ACCESS >180 D AGO', 'IN ANY GROUP',
     'GROUP MANAGER', 'CAN CREATE APPS', 'APP MANAGER', 'IN REALM DIRECTORY', 
-    'REALM APPROVED', 'IS SERVICE ACCOUNT'
-]
+    'REALM APPROVED', 'IS SERVICE ACCOUNT']
 USER_READS_DROP = ['ACTION']
 INTEGRATION_READS_DROP = ['TYPE', 'ACTION', 'ACCOUNT_ID', 'CHANNEL']
 
 USER_ACCOUNTS_REORDER = ['USER ID', 'LAST ACCESS', 'ACCESS STATUS', 'EMAIL']
 USER_READS_REORDER = ['USER_ID', 'APP_ID', 'TIMESTAMP', 'USER_AGENT']
 INTEGRATION_READS_REORDER = ['USER_ID', 'APP_ID', 'PIPELINE_ID', 'TIMESTAMP', 'USER_AGENT']
+
+ACC_USER = [
+    ['karen.small@email.com', 'abcdefghi'], 
+    ['kevin.tall@gmail.com', 'jklmnopqr']]
 
 def Handle_errors(func):
     """Decorator for handling errors in functions."""
@@ -70,7 +73,7 @@ def Get_date_range(df):
     return df['DATE'].min(), df['DATE'].max()
 
 @Handle_errors
-def Frequency(df):
+def Calc_freq(df):
     """Calculate frequency of occurrences."""
     df = df.drop(columns=['USER_AGENT'])
 
@@ -113,8 +116,33 @@ def User_id_full(df, user_id):
 
     return final_df
 
-def Summarize_volume(user_acc, user_read, int_read):
-    """Summarize volume of user activities."""
+@Handle_errors
+def Populate_data(df):
+    """Populate missing APP_IDs based on email addresses."""
+    for email, app_id in ACC_USER:
+        df.loc[(df['APP_ID'].isna()) & (df['EMAIL'] == email), 'APP_ID'] = app_id
+    return df
+
+@Handle_errors
+def Frequency(df, time, user_acc):
+    """Calculate and clean frequency data, then save the results."""
+    freq = Calc_freq(df)
+
+    freq_columns = ['FREQUENCY', 'PIPELINE_ID', 'USER_ID', 'APP_ID']
+    freq = Clean_frequency_columns(freq, freq_columns)
+    
+    annualized = Annualized_api(freq, time)
+    annualized = Clean_frequency_columns(annualized, ['ANNUALIZED_FREQUENCY'])
+
+    annualized_df = User_id_full(annualized, user_acc)
+    annualized_df.replace(0, np.nan, inplace=True)
+    annualized_df = Populate_data(annualized_df)
+
+    Save_csv(annualized_df)
+
+@Handle_errors
+def Main(user_acc, user_read, int_read):
+    """Main function to clean data, calculate frequencies, and save results."""
     user_acc = Clean_user_acc(user_acc)
 
     reads_both = pd.concat([int_read, user_read])
@@ -124,27 +152,18 @@ def Summarize_volume(user_acc, user_read, int_read):
     if fdate is None or ldate is None:
         print("Error: Unable to determine date range.")
         return
-    day_amnt = ((ldate - fdate).days) - 2
+    day_amnt = ((ldate - fdate).days)
+    print(day_amnt)
     
     reads_both = reads_both.drop(columns=['TIMESTAMP', 'DATE'])
-    
-    freq = Frequency(reads_both)
 
-    freq_columns = ['FREQUENCY', 'PIPELINE_ID', 'USER_ID', 'APP_ID']
-    freq = Clean_frequency_columns(freq, freq_columns)
+    Frequency(reads_both, day_amnt, user_acc)
     
-    annualized = Annualized_api(freq, day_amnt)
-    annualized = Clean_frequency_columns(annualized, ['ANNUALIZED_FREQUENCY'])
-
-    df = User_id_full(annualized, user_acc)
-    df.replace(0, np.nan, inplace=True)
-    
-    Save_csv(df)
 
 df_user_acc = Read_csv(USER_ACCOUNTS, USER_ACCOUNTS_DROP, USER_ACCOUNTS_REORDER)
 df_user_read = Read_csv(USER_READS, USER_READS_DROP, USER_READS_REORDER)
 df_int_read = Read_csv(INTEGRATION_READS, INTEGRATION_READS_DROP, INTEGRATION_READS_REORDER)
 
-Summarize_volume(df_user_acc, df_user_read, df_int_read)
+Main(df_user_acc, df_user_read, df_int_read)
 
 print("Finished!")
