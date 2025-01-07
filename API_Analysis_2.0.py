@@ -19,9 +19,9 @@ USER_ACCOUNTS_REORDER = ['USER ID', 'LAST ACCESS', 'ACCESS STATUS', 'EMAIL']
 USER_READS_REORDER = ['USER_ID', 'APP_ID', 'TIMESTAMP', 'USER_AGENT']
 INTEGRATION_READS_REORDER = ['USER_ID', 'APP_ID', 'PIPELINE_ID', 'TIMESTAMP', 'USER_AGENT']
 
-ACC_USER = [
-    ['karen.small@email.com', 'abcdefghi'], 
-    ['kevin.tall@gmail.com', 'jklmnopqr']]
+ACC_USER = [ # Email, App_ID
+    ['karen.small@email.com', 'abcdefghi'], #96385274 and should have 2
+    ['kevin.tall@gmail.com', 'jklmnopqr']]  #98765432 and should have 1
 
 def Handle_errors(func):
     """Decorator for handling errors in functions."""
@@ -158,7 +158,6 @@ def Main(user_acc, user_read, int_read):
     reads_both = reads_both.drop(columns=['TIMESTAMP', 'DATE'])
 
     Frequency(reads_both, day_amnt, user_acc)
-    
 
 df_user_acc = Read_csv(USER_ACCOUNTS, USER_ACCOUNTS_DROP, USER_ACCOUNTS_REORDER)
 df_user_read = Read_csv(USER_READS, USER_READS_DROP, USER_READS_REORDER)
